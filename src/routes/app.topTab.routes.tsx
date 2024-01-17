@@ -18,7 +18,7 @@ export function AppRoutes() {
     }
   }}
   >
-    <Screen name='Memories' component={Home} />
+    <Screen name='Memórias' component={Home} />
     <Screen name='to do' component={ToDo} />
   </Navigator>
 )

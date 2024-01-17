@@ -1,7 +1,7 @@
 import {NavigationContainer} from '@react-navigation/native';
-import { AppRoutes } from './app.topTab.routes';
 import { Header } from '../components/Header';
 import { StatusBar } from 'react-native';
+import { AppRoutesTabs } from './app.stack.routes';
 
 export function Routes(){
   return(
@@ -12,7 +12,7 @@ export function Routes(){
         backgroundColor="#18181b"
       />
       <Header />
-      <AppRoutes/>
+      <AppRoutesTabs/>
     </NavigationContainer>
   )
 }

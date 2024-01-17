@@ -11,7 +11,7 @@ module.exports = {
       colors: {
         background_header: '#ccc',
         background: '#cccc'
-      }
+      },
     },
   },
   plugins: [],

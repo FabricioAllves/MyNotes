@@ -1,10 +1,15 @@
 import React from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { View, Text, Image, TouchableOpacity, TouchableOpacityProps } from 'react-native';
+import {Feather} from '@expo/vector-icons';
+
+type ButtonProps = TouchableOpacityProps &{
+
+}
 
 
-export function CardNote() {
+export function CardNote({...rest}: ButtonProps) {
   return (
-    <TouchableOpacity activeOpacity={0.7} className='h-40 w-full mb-4 rounded border border-zinc-800 p-2'>
+    <TouchableOpacity activeOpacity={0.7} className='h-40 w-full mb-4 rounded border border-zinc-800 p-2' {...rest}>
       <View className='flex-row justify-between mb-2'>
         <Text className='font-bold text-white text-lg  leading-none'>
           Create app using Expo
@@ -33,8 +38,9 @@ export function CardNote() {
           #Js, Javascript, expo
         </Text>
 
-        <TouchableOpacity className="h-8 w-24 bg-white rounded justify-center items-center">
-          <Text className="align-middle justify-center leading-4 font-medium">
+        <TouchableOpacity className="h-8 w-24 bg-white rounded justify-center items-center flex-row">
+          <Feather name='award'/>
+          <Text className="align-middle justify-center leading-4 font-medium text-sm">
             Favorito
           </Text>
         </TouchableOpacity>
