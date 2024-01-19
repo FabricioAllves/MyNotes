@@ -1,11 +1,12 @@
 import {NavigationContainer} from '@react-navigation/native';
 import { Header } from '../components/Header';
-import { StatusBar } from 'react-native';
+import { StatusBar, View } from 'react-native';
 import { AppRoutesTabs } from './app.stack.routes';
 
 export function Routes(){
   return(
-    <NavigationContainer>
+    <View className="flex-1 bg-zinc-950">
+      <NavigationContainer>
       <StatusBar
         barStyle='dark-content'
         translucent={false}
@@ -14,6 +15,7 @@ export function Routes(){
       <Header />
       <AppRoutesTabs/>
     </NavigationContainer>
+    </View>
   )
 }
 

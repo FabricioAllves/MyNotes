@@ -1,13 +1,13 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, TouchableOpacityProps } from 'react-native';
-import {Feather} from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
 
-type ButtonProps = TouchableOpacityProps &{
+type ButtonProps = TouchableOpacityProps & {
 
 }
 
 
-export function CardNote({...rest}: ButtonProps) {
+export function CardNote({ ...rest }: ButtonProps) {
   return (
     <TouchableOpacity activeOpacity={0.7} className='h-40 w-full mb-4 rounded border border-zinc-800 p-2' {...rest}>
       <View className='flex-row justify-between mb-2'>
@@ -30,7 +30,7 @@ export function CardNote({...rest}: ButtonProps) {
 
         <View className="w-16 h-16">
           <Image className="w-16 h-16 rounded-sm" source={{ uri: "https://logos-download.com/wp-content/uploads/2019/01/JavaScript_Logo.png" }} />
-          </View>
+        </View>
       </View>
 
       <View className='flex-row justify-between mt-4'>
@@ -39,7 +39,7 @@ export function CardNote({...rest}: ButtonProps) {
         </Text>
 
         <TouchableOpacity className="h-8 w-24 bg-white rounded justify-center items-center flex-row">
-          <Feather name='award'/>
+          <Feather name='award' />
           <Text className="align-middle justify-center leading-4 font-medium text-sm">
             Favorito
           </Text>
