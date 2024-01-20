@@ -1,18 +1,22 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, TouchableOpacityProps } from 'react-native';
-import { Feather } from '@expo/vector-icons';
+import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 
 type ButtonProps = TouchableOpacityProps & {
-
+  data: {
+    title: string;
+    description: string;
+    url: string;
+  }
 }
 
 
-export function CardNote({ ...rest }: ButtonProps) {
+export function CardNote({ data, ...rest }: ButtonProps) {
   return (
-    <TouchableOpacity activeOpacity={0.7} className='h-40 w-full mb-4 rounded border border-zinc-800 p-2' {...rest}>
+    <TouchableOpacity activeOpacity={0.7} className='h-40 w-full mb-4 rounded border-b-2 border-zinc-800 p-2' {...rest}>
       <View className='flex-row justify-between mb-2'>
         <Text className='font-bold text-white text-lg  leading-none'>
-          Create app using Expo
+          {data.title}
         </Text>
 
         <Text className='text-white text-xs align-middle'>
@@ -23,14 +27,16 @@ export function CardNote({ ...rest }: ButtonProps) {
       <View className="flex-row items-center">
         <View className="w-12 flex-1">
           <Text className="text-zinc-400 line-clamp-3 pr-5">
-            Hi, let's have a meeting tomorrow to discuss the project.
-            I've been reviewing the project details an the project details an the project details an the project details and have some
+            {data.description}
           </Text>
         </View>
 
-        <View className="w-16 h-16">
-          <Image className="w-16 h-16 rounded-sm" source={{ uri: "https://logos-download.com/wp-content/uploads/2019/01/JavaScript_Logo.png" }} />
-        </View>
+        {
+          data.url &&
+          <View className="w-16 h-16">
+            <Image className="w-16 h-16 rounded-sm" source={{ uri: data.url ? data.url : null }} resizeMode='cover' />
+          </View>
+        }
       </View>
 
       <View className='flex-row justify-between mt-4'>
@@ -38,11 +44,9 @@ export function CardNote({ ...rest }: ButtonProps) {
           #Js, Javascript, expo
         </Text>
 
-        <TouchableOpacity className="h-8 w-24 bg-white rounded justify-center items-center flex-row">
-          <Feather name='award' />
-          <Text className="align-middle justify-center leading-4 font-medium text-sm">
-            Favorito
-          </Text>
+        <TouchableOpacity className="h-8 w-10 bg-zinc-900  rounded justify-center items-center flex-row">
+          <MaterialCommunityIcons name='cards-heart' color={'rgb(234, 179, 8)'} size={22}/>
+          
         </TouchableOpacity>
       </View>
     </TouchableOpacity>

@@ -8,14 +8,17 @@ export function CreateMemorie() {
 
   return (
     <View className="bg-zinc-950 flex-1 p-4">
-      <TouchableOpacity onPress={() => navigation.goBack()}>
-        <Feather name='arrow-left' color={'rgb(234, 179, 8)'} size={22} />
-      </TouchableOpacity>
 
-      <TextInput
-        className="bg-zinc-900 h-[50px] rounded-md mt-8 placeholder:text-gray-500 px-5 text-gray-500"
-        placeholder='Título da memória'
-      />
+      <View className="flex-row items-center">
+        <TouchableOpacity onPress={() => navigation.goBack()} className="w-10 h-10 mr-5 items-center justify-center">
+          <Feather name='arrow-left' color={'rgb(234, 179, 8)'} size={22} />
+        </TouchableOpacity>
+
+        <TextInput
+          className="bg-zinc-900 flex-1 h-[50px] rounded-md  placeholder:text-gray-500 px-5 text-gray-500"
+          placeholder='Título da memória'
+        />
+      </View>
 
       <TextInput
         className="bg-zinc-900 h-[40%] rounded-md my-7 p-5 placeholder:text-gray-500 text-gray-500"
@@ -25,7 +28,7 @@ export function CreateMemorie() {
         placeholder='Descrição da memória'
       />
 
-      <TouchableOpacity className="h-28 w-28 border-zinc-800 border-dashed border-2 justify-center items-center">
+      <TouchableOpacity className="h-28 w-28 border-zinc-800 rounded-sm border-dashed border-2 justify-center items-center">
         <Feather name='camera' color={'#28282c'} size={30} />
       </TouchableOpacity>
 

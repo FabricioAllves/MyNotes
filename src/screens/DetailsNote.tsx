@@ -12,7 +12,7 @@ export function DetailsNote() {
     <View className="bg-zinc-950 flex-1 p-4">
       <View className="flex-row gap-5 items-center mb-5">
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Feather name='chevron-left' color={'white'} size={22} />
+          <Feather name='arrow-left' color={'white'} size={22} />
         </TouchableOpacity>
 
         <Text className="font-bold text-white text-lg  leading-none flex-1">Create app using Expo</Text>
