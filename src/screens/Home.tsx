@@ -29,8 +29,11 @@ export function Home() {
       </View>
 
       <View className="h-20 bg-zinc-950 px-5 justify-center items-center flex-row border-t border-zinc-900">
-        <TouchableOpacity className="h-12 w-12 mr-5 bg-zinc-800 rounded-md items-center justify-center">
-          <Feather name='plus' size={24} color={'#9ca3af'} />
+        <TouchableOpacity
+        className="h-12 w-12 mr-5 bg-zinc-800 rounded-md items-center justify-center"
+        onPress={() => navigate('CreateMemorie')}
+        >
+          <Feather name='plus' size={24} color={'rgb(234, 179, 8)'} />
         </TouchableOpacity>
 
         <View className="flex-1">

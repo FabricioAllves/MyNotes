@@ -1,12 +1,13 @@
 import { NativeStackNavigationProp, createNativeStackNavigator } from '@react-navigation/native-stack';
 import { DetailsNote } from '../screens/DetailsNote';
-import { Home } from '../screens/Home';
 import { AppRoutes } from './app.topTab.routes';
+import { CreateMemorie } from '../screens/CreateMemorie';
 
 
 type Stack = {
   detailsNotes: undefined,
   Home: undefined,
+  CreateMemorie: undefined
 }
 
 export type StackNavigatorRoutesProps = NativeStackNavigationProp<Stack>
@@ -24,6 +25,11 @@ export function AppRoutesTabs() {
       <Screen
         name="detailsNotes"
         component={DetailsNote}
+      />
+
+      <Screen
+        name="CreateMemorie"
+        component={CreateMemorie}
       />
     </Navigator>
   )
