@@ -1,15 +1,12 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity, TouchableOpacityProps } from 'react-native';
 import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
+import { Memorie } from '../dto/Memmorie';
+import colors from 'tailwindcss/colors';
 
 type ButtonProps = TouchableOpacityProps & {
-  data: {
-    title: string;
-    description: string;
-    url: string;
-  }
+  data: Memorie
 }
-
 
 export function CardNote({ data, ...rest }: ButtonProps) {
   return (
@@ -45,8 +42,7 @@ export function CardNote({ data, ...rest }: ButtonProps) {
         </Text>
 
         <TouchableOpacity className="h-8 w-10 bg-zinc-900  rounded justify-center items-center flex-row">
-          <MaterialCommunityIcons name='cards-heart' color={'rgb(234, 179, 8)'} size={22}/>
-          
+          <MaterialCommunityIcons name='cards-heart' color={colors.yellow[500]} size={22}/>
         </TouchableOpacity>
       </View>
     </TouchableOpacity>

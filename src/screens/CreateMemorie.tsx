@@ -1,6 +1,7 @@
 import React from 'react';
 import { TextInput, TouchableOpacity, View, Text } from 'react-native';
 import { Feather } from '@expo/vector-icons';
+import colors from 'tailwindcss/colors';
 import { useNavigation } from '@react-navigation/native';
 
 export function CreateMemorie() {
@@ -11,7 +12,7 @@ export function CreateMemorie() {
 
       <View className="flex-row items-center">
         <TouchableOpacity onPress={() => navigation.goBack()} className="w-10 h-10 mr-5 items-center justify-center">
-          <Feather name='arrow-left' color={'rgb(234, 179, 8)'} size={22} />
+          <Feather name='arrow-left' color={colors.yellow[500]} size={22} />
         </TouchableOpacity>
 
         <TextInput
@@ -36,7 +37,7 @@ export function CreateMemorie() {
         className="h-16 bg-yellow-500 rounded-md absolute bottom-5 w-[100%] mx-4 justify-center items-center flex-row gap-2"
       >
         <Feather name='coffee' color={'#28282c'} size={22} />
-        <Text className="font-bold text-base">Confirmar memória</Text>
+        <Text className="font-bold text-base">Salvar memória</Text>
       </TouchableOpacity>
     </View>
   );

@@ -5,8 +5,6 @@ import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigatorRoutesProps } from '../routes/app.stack.routes';
 
-
-
 export function Home() {
   const [memorie, setMemorie] = useState([
     {
@@ -23,8 +21,8 @@ export function Home() {
     },
   ]);
 
-  const {navigate} = useNavigation<StackNavigatorRoutesProps>()
-  
+  const { navigate } = useNavigation<StackNavigatorRoutesProps>()
+
   return (
     <>
       <View className="flex-1 bg-zinc-950 p-5 pb-0">
@@ -39,20 +37,20 @@ export function Home() {
 
         <FlatList
           data={memorie}
-          renderItem={({ item }) => <CardNote data={item} onPress={() => navigate('detailsNotes')}/>}
+          renderItem={({ item }) => <CardNote data={item} onPress={() => navigate('detailsNotes', {data: item})} />}
         />
       </View>
 
       <View className="h-20 bg-zinc-950 px-5 justify-center items-center flex-row  border-zinc-900">
         <TouchableOpacity
-        className="h-12 w-12 mr-5 bg-yellow-500 rounded-md items-center justify-center"
-        onPress={() => navigate('CreateMemorie')}
+          className="h-12 w-12 mr-5 bg-yellow-500 rounded-md items-center justify-center"
+          onPress={() => navigate('CreateMemorie')}
         >
           <Feather name='plus' size={24} color={'black'} />
         </TouchableOpacity>
 
         <View className="flex-1">
-          <TextInput className="bg-zinc-800 placeholder:text-base h-12 rounded pl-3 text-lg placeholder:text-gray-500" placeholder='Pesquisar por palavras chaves'/>
+          <TextInput className="bg-zinc-800 placeholder:text-base h-12 rounded pl-3 text-lg placeholder:text-gray-500" placeholder='Pesquisar por palavras chaves' />
         </View>
       </View>
     </>

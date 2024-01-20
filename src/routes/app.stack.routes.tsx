@@ -2,10 +2,11 @@ import { NativeStackNavigationProp, createNativeStackNavigator } from '@react-na
 import { DetailsNote } from '../screens/DetailsNote';
 import { AppRoutes } from './app.topTab.routes';
 import { CreateMemorie } from '../screens/CreateMemorie';
+import { Memorie } from '../dto/Memmorie';
 
 
 type Stack = {
-  detailsNotes: undefined,
+  detailsNotes: { data: Memorie},
   Home: undefined,
   CreateMemorie: undefined
 }
