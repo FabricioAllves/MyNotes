@@ -1,35 +1,25 @@
-import React, { useState } from 'react';
-import { View, Text, FlatList, TextInput, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { View, Text, FlatList, TextInput, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
 import { CardNote } from '../components/CardNote';
 import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigatorRoutesProps } from '../routes/app.stack.routes';
+import { useNoteStore } from '../store/notes.store';
+import colors from 'tailwindcss/colors';
 
 export function Home() {
-  const [memorie, setMemorie] = useState([
-    {
-      id: 1,
-      title: 'Título da memória',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet consectetur adipiscing. Orci eu lobortis elementum nibh tellus. Quis enim lobortis scelerisque fermentum dui faucibus',
-      url: 'https://th.bing.com/th/id/R.8a43e144d69919a48d8cb585bd9bd17f?rik=3oa0TLYvX663qw&riu=http%3a%2f%2fempurraozin.com.br%2fwp-content%2fuploads%2f2020%2f02%2fimg08.jpg&ehk=dQvW%2fFZdoSaPXnn99PCJ0yecPHr1uG0%2bZQcjwzxiim4%3d&risl=&pid=ImgRaw&r=0'
-    },
-    {
-      id: 2,
-      title: 'Título da memória',
-      description: 'In mollis nunc sed id semper. Vel risus commodo viverra maecenas accumsan. Dolor magna eget est lorem ipsum dolor sit amet consectetur. Ac turpis egestas sed tempus urna. Hendrerit dolor magna eget est lorem ipsum dolor. Sed sed risus pretium quam.',
-      url: ''
-    },
-  ]);
-
+  const memorie = useNoteStore((state) => state.notes)
   const { navigate } = useNavigation<StackNavigatorRoutesProps>()
 
   return (
     <>
-      <View className="flex-1 bg-zinc-950 p-5 pb-0">
+     <TouchableWithoutFeedback>
+     <View className="flex-1 bg-zinc-950 p-5 pb-0">
         <View className="flex-row justify-between mb-6">
           <TouchableOpacity className="h-10 bg-zinc-900 w-[48%] rounded-md justify-center items-center border border-yellow-500">
             <Text className="text-yellow-400 font-medium">Todos</Text>
           </TouchableOpacity>
+
           <TouchableOpacity className="h-10 bg-zinc-900 w-[48%] rounded-md justify-center items-center">
             <Text className="text-zinc-600 font-medium">Favoritos</Text>
           </TouchableOpacity>
@@ -37,9 +27,17 @@ export function Home() {
 
         <FlatList
           data={memorie}
-          renderItem={({ item }) => <CardNote data={item} onPress={() => navigate('detailsNotes', {data: item})} />}
+          renderItem={({ item }) => <CardNote data={item} onPress={() => navigate('detailsNotes', { data: item })} />}
+          showsHorizontalScrollIndicator={false}
+          ListEmptyComponent={() => (
+            <View className=" h-52 justify-center items-center">
+              <Feather name='file-text' size={50} color={colors.zinc[800]} />
+              <Text className="text-zinc-800 font-medium mt-5 text-lg">Você ainda não possui notas</Text>
+            </View>
+          )}
         />
       </View>
+     </TouchableWithoutFeedback>
 
       <View className="h-20 bg-zinc-950 px-5 justify-center items-center flex-row  border-zinc-900">
         <TouchableOpacity

@@ -3,12 +3,19 @@ import { View, Text, Image, TouchableOpacity, TouchableOpacityProps } from 'reac
 import { Feather, MaterialCommunityIcons } from '@expo/vector-icons';
 import { Memorie } from '../dto/Memmorie';
 import colors from 'tailwindcss/colors';
+import { format } from 'date-fns';
+import {ptBR} from 'date-fns/locale/pt-BR';
 
 type ButtonProps = TouchableOpacityProps & {
   data: Memorie
 }
 
 export function CardNote({ data, ...rest }: ButtonProps) {
+
+  const currentDate = format(data.date, 'd MMM, yy', {
+    locale: ptBR,
+  });
+
   return (
     <TouchableOpacity activeOpacity={0.7} className='h-40 w-full mb-4 rounded border-b-2 border-zinc-800 p-2' {...rest}>
       <View className='flex-row justify-between mb-2'>
@@ -17,13 +24,13 @@ export function CardNote({ data, ...rest }: ButtonProps) {
         </Text>
 
         <Text className='text-white text-xs align-middle'>
-          01, Jan, 2024
+          {currentDate}
         </Text>
       </View>
 
-      <View className="flex-row items-center">
+      <View className="flex-row  flex-1">
         <View className="w-12 flex-1">
-          <Text className="text-zinc-400 line-clamp-3 pr-5">
+          <Text className="text-zinc-400 line-clamp-3 pr-5 mt-1">
             {data.description}
           </Text>
         </View>
@@ -36,7 +43,7 @@ export function CardNote({ data, ...rest }: ButtonProps) {
         }
       </View>
 
-      <View className='flex-row justify-between mt-4'>
+      <View className='flex-row justify-between mt-3'>
         <Text className='text-zinc-600 text-xs align-middle'>
           #Js, Javascript, expo
         </Text>

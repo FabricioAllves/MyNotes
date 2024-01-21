@@ -12,7 +12,6 @@ type RouteParamsProps = {
 export function DetailsNote() {
   const route = useRoute();
   const { data } = route.params as RouteParamsProps
-
   const navigation = useNavigation();
 
   return (

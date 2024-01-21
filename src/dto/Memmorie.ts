@@ -1,5 +1,6 @@
 export type Memorie = {
   title: string;
   description: string;
-  url: string;
+  date: Date;
+  url?: string;
 }
