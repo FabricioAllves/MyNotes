@@ -38,7 +38,7 @@ export function CardNote({ data, ...rest }: ButtonProps) {
         {
           data.url &&
           <View className="w-16 h-16">
-            <Image className="w-16 h-16 rounded-sm" source={{ uri: data.url ? data.url : null }} resizeMode='cover' />
+            <Image className="w-16 h-16 rounded-sm" source={{ uri: data.url[0].uri ? data.url[0].uri : null }} resizeMode='cover' />
           </View>
         }
       </View>
